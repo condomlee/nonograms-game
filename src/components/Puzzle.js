@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { toKey } from '../utils/react/toKey';
+import { toKey } from '@/utils/react/toKey';
 import GridCell from "./GridCell"
-import CellState from "../constants/CellState"
+import CellState from "@/constants/CellState"
 
 // for left mouse click its different on pointermove but right mouse click is the same
 // https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events#Determining_button_states
@@ -107,13 +107,13 @@ class Puzzle extends Component {
     return this.props.answer.map((row, rowIndex) => {
       return row.map((value, colIndex) => {
         return <GridCell value={value} row={rowIndex} column={colIndex}
-                  key={toKey(rowIndex, colIndex)} />
-        }
+          key={toKey(rowIndex, colIndex)} />
+      }
       )
     })
   }
 
-  render () {
+  render() {
     return (
       <div className={`nonogram-grid grid-${this.props.cols}x${this.props.rows}`}
         onPointerDown={this.pointerDownHandler}

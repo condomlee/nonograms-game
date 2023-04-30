@@ -1,5 +1,5 @@
-import { toKey } from "../utils/react/toKey"
-import CellState from "../constants/CellState"
+import { toKey } from "@/utils/react/toKey"
+import CellState from "@/constants/CellState"
 
 function HintGroup({ hints, line }) {
   const isHintSolved = (hint, line) => {

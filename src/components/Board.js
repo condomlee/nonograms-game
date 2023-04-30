@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Hints from "./Hints"
 import Puzzle from "./Puzzle"
-import CellState from "../constants/CellState"
+import CellState from "@/constants/CellState"
 
 function Board({ data, rowHints, columnHints, newPuzzle }) {
   const [answer, setAnswer] = useState([])
@@ -12,7 +12,7 @@ function Board({ data, rowHints, columnHints, newPuzzle }) {
   }
 
   useEffect(() => {
-    let result = Array.from({length: data.length}, () => new Array(data[0].length).fill(CellState.UNKNOWN))
+    let result = Array.from({ length: data.length }, () => new Array(data[0].length).fill(CellState.UNKNOWN))
     // find lines where sum is 0 and cross out each cell
     for (let i = 0; i < data.length; i++) {
       const row = data[i]

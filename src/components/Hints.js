@@ -1,4 +1,4 @@
-import { toKey } from "../utils/react/toKey"
+import { toKey } from "@/utils/react/toKey"
 import HintGroup from "./HintGroup"
 
 function Hints({ puzzle, data, className, type }) {

@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import { solveNonogram } from './utils/puzzle/solver';
+import { solveNonogram } from '@/utils/puzzle/solver';
 import seedrandom from 'seedrandom';
-import { getColumnHints } from './utils/puzzle/getColumnHints';
-import { getRowHints } from './utils/puzzle/getRowHints';
-import randomPuzzle from "./utils/puzzle/randomPuzzle";
-import Board from "./components/Board"
+import { getColumnHints } from '@/utils/puzzle/getColumnHints';
+import { getRowHints } from '@/utils/puzzle/getRowHints';
+import randomPuzzle from "@/utils/puzzle/randomPuzzle";
+import Board from "@/components/Board"
 
 function App() {
   // TODO: create puzzleId from data
@@ -19,7 +18,7 @@ function App() {
     const seed = Date.now().toString(36)
     const rng = seedrandom(seed)
 
-    const sizes = [ [5, 5], [10, 5], [5, 10], [10, 10] ]
+    const sizes = [[5, 5], [10, 10]]
 
     while (true) {
       const [rows, columns] = sizes[Math.floor(rng() * sizes.length)]
@@ -34,7 +33,7 @@ function App() {
     }
   }
 
-  const [data, setData] = useState({seed: "", puzzle: [], rowHints: [], columnHints: []})
+  const [data, setData] = useState({ seed: "", puzzle: [], rowHints: [], columnHints: [] })
 
   useEffect(() => {
     setData(generateSolvablePuzzle())
@@ -44,9 +43,11 @@ function App() {
     setData(generateSolvablePuzzle())
   }
 
-  return(
-    <div className="app-container">
-      <Board data={data.puzzle} rowHints={data.rowHints} columnHints={data.columnHints} newPuzzle={newPuzzle} />
+  return (
+    <div className="app-root">
+      <div className="app-container">
+        <Board data={data.puzzle} rowHints={data.rowHints} columnHints={data.columnHints} newPuzzle={newPuzzle} />
+      </div>
     </div>
   )
 }
