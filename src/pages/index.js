@@ -54,6 +54,8 @@ function App() {
         <meta name="description" content="A game of endless, randomly generated but solvable, Nonogram puzzles." />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="manifest" href="manifest.json" />
+
+        <title>Endless Nonograms</title>
       </Head>
 
       <div className="app-root">
