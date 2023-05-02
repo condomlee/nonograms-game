@@ -5,6 +5,7 @@ import { getColumnHints } from '@/utils/puzzle/getColumnHints';
 import { getRowHints } from '@/utils/puzzle/getRowHints';
 import randomPuzzle from "@/utils/puzzle/randomPuzzle";
 import Board from "@/components/Board"
+import Head from 'next/head';
 
 function App() {
   // TODO: create puzzleId from data
@@ -44,11 +45,23 @@ function App() {
   }
 
   return (
-    <div className="app-root">
-      <div className="app-container">
-        <Board data={data.puzzle} rowHints={data.rowHints} columnHints={data.columnHints} newPuzzle={newPuzzle} />
+    <>
+      <Head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="description" content="A game of endless, randomly generated but solvable, Nonogram puzzles." />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="manifest" href="manifest.json" />
+      </Head>
+
+      <div className="app-root">
+        <div className="app-container">
+          <Board data={data.puzzle} rowHints={data.rowHints} columnHints={data.columnHints} newPuzzle={newPuzzle} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
